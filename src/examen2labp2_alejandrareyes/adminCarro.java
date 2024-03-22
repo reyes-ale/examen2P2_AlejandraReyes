@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 public class adminCarro {
     private ArrayList<Carro> carros = new ArrayList();
     private File archivo = null;
+    
     
     public adminCarro(String path) {
         archivo = new File(path);
@@ -56,14 +58,18 @@ public class adminCarro {
                     while ((temp = (Carro) obj.readObject()) != null) {
                         carros.add(temp);
                     }
+                    
                 } catch (EOFException e) {
-                   e.printStackTrace();
+                   
+                }
+                for (int i = 0; i < carros.size(); i++) {
+                    System.out.println(carros.get(i));
                 }
                 obj.close();
                 entrada.close();
             }         
         } catch (Exception ex) {
-            ex.printStackTrace();
+           
         }
     }
     

@@ -4,14 +4,18 @@
  */
 package examen2labp2_alejandrareyes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author aleja
  */
-public class Carro {
+public class Carro implements Serializable{
     protected String marca,modelo;
     protected int velocidad; 
 
+    private static final long SerialVersionUID=333;
+    
     public Carro(String marca, String modelo, int velocidad) {
         this.marca = marca;
         this.modelo = modelo;
@@ -44,7 +48,7 @@ public class Carro {
 
     @Override
     public String toString() {
-        return "Carro{" + "marca=" + marca + ", modelo=" + modelo + ", velocidad=" + velocidad + '}';
+        return marca;
     }
     
     
